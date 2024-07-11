@@ -64,8 +64,11 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.36f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\PlayerReset.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\SphereMovement.cs" />
+    <Compile Include="Assets\Scripts\CameraSwitch.cs" />
+    <Compile Include="Assets\Scripts\PlaneTiggerCameraSpin.cs" />
     <Compile Include="Assets\Scripts\planeMovement.cs" />
   </ItemGroup>
   <ItemGroup>

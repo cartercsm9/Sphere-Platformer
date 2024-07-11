@@ -2,69 +2,82 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target;
-    public float distance = 10.0f; // Distance from the target
-    public float height = 5.0f;    // Height above the target
-    public float smoothSpeed = 0.5f; // Smoothing speed for movement
-    public float rotationSpeed = 5.0f; // Speed of camera rotation after delay
-    public float directionHoldTime = 3.0f; // Delay before camera starts rotating
-
-    private float rotationTimer = 0.0f;
-    private Vector3 lastPosition;
+    public Transform target;  // The player to follow
+    public float distance = 10.0f;  // Distance behind the player
+    public float height = 5.0f;     // Height above the player
+    public float followSmoothSpeed = 0.5f;  // Smoothing speed for following
+    private bool shouldRotate = false;
+    private Vector3 initialPosition;
+    private float rotationDuration = 0.5f;  // Total time to complete 180 degrees rotation
+    private float rotationTimeElapsed = 0f;
 
     void Start()
     {
-        lastPosition = target.position;
-        // Initialize the camera's initial position
-        // Adjust the initial position so the camera looks in the -z direction from the start
-        Vector3 initialPosition = target.position + target.forward * distance + Vector3.up * height;
+        initialPosition = CalculatePosition(target.position);
         transform.position = initialPosition;
-        transform.LookAt(target); // Ensure the camera initially faces the target
+        transform.LookAt(target);
+        TriggerRotation();
     }
 
-    void LateUpdate()
+    void Update()
     {
-        if (target == null)
-            return;
+        if (target == null) return;
 
-        // Check if the target has moved significantly and if it is moving
-        if (Vector3.Distance(lastPosition, target.position) > 0.01f)
+        if (shouldRotate)
         {
-            rotationTimer += Time.deltaTime;
-            lastPosition = target.position;
+            RotateAroundPlayer();
         }
         else
         {
-            rotationTimer = 0.0f; // Reset the timer if the target stops moving
+            FollowPlayer();
         }
+    }
 
-        // Calculate the current height and position of the camera
-        float wantedHeight = target.position.y + height;
-        float currentHeight = transform.position.y;
+    Vector3 CalculatePosition(Vector3 basePosition)
+    {
+        // Calculate the offset position from the target
+        return basePosition - target.forward * distance + Vector3.up * height;
+    }
 
-        // Always update the height of the camera smoothly
-        Vector3 upPosition = transform.position;
-        upPosition.y = Mathf.Lerp(currentHeight, wantedHeight, smoothSpeed * Time.deltaTime);
-
-        // Determine if the camera should rotate based on the timer
-        if (rotationTimer > directionHoldTime)
-        {
-            // Calculate the current rotation angles
-            float wantedRotationAngle = target.eulerAngles.y;
-            float currentRotationAngle = transform.eulerAngles.y;
-
-            // Smoothly rotate towards the desired angle
-            currentRotationAngle = Mathf.LerpAngle(currentRotationAngle, wantedRotationAngle, rotationSpeed * Time.deltaTime);
-
-            // Update the camera's rotation
-            transform.rotation = Quaternion.Euler(0, currentRotationAngle, 0);
-        }
-
-        // Calculate position based on the updated rotation
-        Vector3 newPosition = target.position - transform.forward * distance + Vector3.up * height;
-        transform.position = Vector3.Lerp(upPosition, newPosition, smoothSpeed * Time.deltaTime);
-
-        // Always look at the target
+    void FollowPlayer()
+    {
+        // Lerp to the calculated position for smooth following
+        Vector3 targetPosition = CalculatePosition(target.position);
+        transform.position = Vector3.Lerp(transform.position, targetPosition, followSmoothSpeed * Time.deltaTime);
         transform.LookAt(target);
     }
+
+    void RotateAroundPlayer()
+    {
+        if (rotationTimeElapsed < rotationDuration)
+        {
+            float rotationStep = (180 / rotationDuration) * Time.deltaTime;
+            transform.RotateAround(target.position, Vector3.up, rotationStep);
+            rotationTimeElapsed += Time.deltaTime;
+        }
+        else
+        {
+            shouldRotate = false;
+            rotationTimeElapsed = 0f; // Reset for potential future rotations
+            transform.LookAt(target);  // Ensure the camera focuses on the player
+        }
+    }
+
+    public void TriggerRotation()
+    {
+        if (!shouldRotate)
+        {
+            shouldRotate = true;
+            rotationTimeElapsed = 0f;  // Reset rotation timer
+        }
+    }
+    public void ResetToInitialPosition()
+    {
+        initialPosition = CalculatePosition(target.position);
+        transform.position = initialPosition;
+        transform.LookAt(target);
+        TriggerRotation();
+        Debug.Log("Camera reset to initial position.");
+    }
 }
+

@@ -431,6 +431,7 @@
 "Library/PackageCache/com.unity.terrain-tools@5.0.1/Editor/TerrainTools/FilterStack/SlopeFilter.cs"
 "Library/PackageCache/com.unity.terrain-tools@5.0.1/Editor/TerrainTools/GUI/DistributionSliderGUI.cs"
 "Library/PackageCache/com.unity.terrain-tools@5.0.1/Editor/TerrainTools/GUI/TerrainToolGUIHelper.cs"
+"Library/PackageCache/com.unity.terrain-tools@5.0.1/Editor/TerrainTools/HydroErosion.cs"
 "Library/PackageCache/com.unity.terrain-tools@5.0.1/Editor/TerrainTools/NoiseFillShaderGenerator.cs"
 "Library/PackageCache/com.unity.terrain-tools@5.0.1/Editor/TerrainTools/NoiseHeightTool.cs"
 "Library/PackageCache/com.unity.terrain-tools@5.0.1/Editor/TerrainTools/NoiseLib/API/DimensionFlags.cs"

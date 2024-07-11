@@ -59,6 +59,43 @@
 
             
             
+            Pass // Value Noise Fill
+            {
+                Name "Value Noise Fill"
+
+                HLSLPROGRAM
+                
+                #pragma vertex vert
+                #pragma fragment frag
+
+                #include "Packages/com.unity.terrain-tools/Shaders/NoiseLib/Fbm/Value.hlsl"
+
+                float4 _TerrainXform;
+                float4 _TerrainScale;
+
+                float2 TransformPosition( float2 brushUV )
+                {
+                    return _TerrainXform.xz + brushUV * _TerrainScale.xz;
+                }
+
+                float4 frag(v2f i) : SV_Target
+                {
+                    float h = UnpackHeightmap( tex2D( _MainTex, i.pcUV ) );
+                    
+                    float2 pos = TransformPosition( i.pcUV );
+
+                    float n = noise_FbmValue( pos, GetDefaultFbmFractalInput() );
+                    
+                    return PackHeightmap( n );
+                    // return PackHeightmap( lerp( h + n, n, OVERWRITE_HEIGHT ) );
+                }
+
+                ENDHLSL
+            }
+
+            
+
+            
             Pass // Voronoi Noise Fill
             {
                 Name "Voronoi Noise Fill"
@@ -85,80 +122,6 @@
                     float2 pos = TransformPosition( i.pcUV );
 
                     float n = noise_FbmVoronoi( pos, GetDefaultFbmFractalInput() );
-                    
-                    return PackHeightmap( n );
-                    // return PackHeightmap( lerp( h + n, n, OVERWRITE_HEIGHT ) );
-                }
-
-                ENDHLSL
-            }
-
-            
-
-            
-            Pass // Ridge Noise Fill
-            {
-                Name "Ridge Noise Fill"
-
-                HLSLPROGRAM
-                
-                #pragma vertex vert
-                #pragma fragment frag
-
-                #include "Packages/com.unity.terrain-tools/Shaders/NoiseLib/Fbm/Ridge.hlsl"
-
-                float4 _TerrainXform;
-                float4 _TerrainScale;
-
-                float2 TransformPosition( float2 brushUV )
-                {
-                    return _TerrainXform.xz + brushUV * _TerrainScale.xz;
-                }
-
-                float4 frag(v2f i) : SV_Target
-                {
-                    float h = UnpackHeightmap( tex2D( _MainTex, i.pcUV ) );
-                    
-                    float2 pos = TransformPosition( i.pcUV );
-
-                    float n = noise_FbmRidge( pos, GetDefaultFbmFractalInput() );
-                    
-                    return PackHeightmap( n );
-                    // return PackHeightmap( lerp( h + n, n, OVERWRITE_HEIGHT ) );
-                }
-
-                ENDHLSL
-            }
-
-            
-
-            
-            Pass // Billow Noise Fill
-            {
-                Name "Billow Noise Fill"
-
-                HLSLPROGRAM
-                
-                #pragma vertex vert
-                #pragma fragment frag
-
-                #include "Packages/com.unity.terrain-tools/Shaders/NoiseLib/Fbm/Billow.hlsl"
-
-                float4 _TerrainXform;
-                float4 _TerrainScale;
-
-                float2 TransformPosition( float2 brushUV )
-                {
-                    return _TerrainXform.xz + brushUV * _TerrainScale.xz;
-                }
-
-                float4 frag(v2f i) : SV_Target
-                {
-                    float h = UnpackHeightmap( tex2D( _MainTex, i.pcUV ) );
-                    
-                    float2 pos = TransformPosition( i.pcUV );
-
-                    float n = noise_FbmBillow( pos, GetDefaultFbmFractalInput() );
                     
                     return PackHeightmap( n );
                     // return PackHeightmap( lerp( h + n, n, OVERWRITE_HEIGHT ) );
@@ -207,16 +170,16 @@
             
 
             
-            Pass // Value Noise Fill
+            Pass // Billow Noise Fill
             {
-                Name "Value Noise Fill"
+                Name "Billow Noise Fill"
 
                 HLSLPROGRAM
                 
                 #pragma vertex vert
                 #pragma fragment frag
 
-                #include "Packages/com.unity.terrain-tools/Shaders/NoiseLib/Fbm/Value.hlsl"
+                #include "Packages/com.unity.terrain-tools/Shaders/NoiseLib/Fbm/Billow.hlsl"
 
                 float4 _TerrainXform;
                 float4 _TerrainScale;
@@ -232,7 +195,44 @@
                     
                     float2 pos = TransformPosition( i.pcUV );
 
-                    float n = noise_FbmValue( pos, GetDefaultFbmFractalInput() );
+                    float n = noise_FbmBillow( pos, GetDefaultFbmFractalInput() );
+                    
+                    return PackHeightmap( n );
+                    // return PackHeightmap( lerp( h + n, n, OVERWRITE_HEIGHT ) );
+                }
+
+                ENDHLSL
+            }
+
+            
+
+            
+            Pass // Ridge Noise Fill
+            {
+                Name "Ridge Noise Fill"
+
+                HLSLPROGRAM
+                
+                #pragma vertex vert
+                #pragma fragment frag
+
+                #include "Packages/com.unity.terrain-tools/Shaders/NoiseLib/Fbm/Ridge.hlsl"
+
+                float4 _TerrainXform;
+                float4 _TerrainScale;
+
+                float2 TransformPosition( float2 brushUV )
+                {
+                    return _TerrainXform.xz + brushUV * _TerrainScale.xz;
+                }
+
+                float4 frag(v2f i) : SV_Target
+                {
+                    float h = UnpackHeightmap( tex2D( _MainTex, i.pcUV ) );
+                    
+                    float2 pos = TransformPosition( i.pcUV );
+
+                    float n = noise_FbmRidge( pos, GetDefaultFbmFractalInput() );
                     
                     return PackHeightmap( n );
                     // return PackHeightmap( lerp( h + n, n, OVERWRITE_HEIGHT ) );

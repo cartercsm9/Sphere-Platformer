@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carte\\TestProj_A1\\Assembly-CSharp.csproj": {}
+    "C:\\Users\\carte\\OneDrive\\Desktop\\UnityGitTest\\Sphere-Platformer\\Assembly-CSharp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carte\\TestProj_A1\\Assembly-CSharp.csproj": {
+    "C:\\Users\\carte\\OneDrive\\Desktop\\UnityGitTest\\Sphere-Platformer\\Assembly-CSharp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carte\\TestProj_A1\\Assembly-CSharp.csproj",
+        "projectUniqueName": "C:\\Users\\carte\\OneDrive\\Desktop\\UnityGitTest\\Sphere-Platformer\\Assembly-CSharp.csproj",
         "projectName": "Assembly-CSharp",
-        "projectPath": "C:\\Users\\carte\\TestProj_A1\\Assembly-CSharp.csproj",
+        "projectPath": "C:\\Users\\carte\\OneDrive\\Desktop\\UnityGitTest\\Sphere-Platformer\\Assembly-CSharp.csproj",
         "packagesPath": "C:\\Users\\carte\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carte\\TestProj_A1\\Temp\\obj\\Debug\\Assembly-CSharp\\",
+        "outputPath": "C:\\Users\\carte\\OneDrive\\Desktop\\UnityGitTest\\Sphere-Platformer\\Temp\\obj\\Debug\\Assembly-CSharp\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\carte\\AppData\\Roaming\\NuGet\\NuGet.Config"

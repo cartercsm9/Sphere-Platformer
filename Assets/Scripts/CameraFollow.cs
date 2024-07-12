@@ -13,10 +13,10 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
-        initialPosition = CalculatePosition(target.position);
+
+        initialPosition = new Vector3(-3.3f, 12.0f, 14.4f);;
         transform.position = initialPosition;
         transform.LookAt(target);
-        TriggerRotation();
     }
 
     void Update()

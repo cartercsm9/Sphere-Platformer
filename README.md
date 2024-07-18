@@ -15,7 +15,7 @@ Move with WASD or arrow keys and jump with the space bar. Collect coins and avoi
 
 ## Report
 
-For a detailed explanation of the development process, challenges faced, and contributions, please refer to https://github.com/cartercsm9/Sphere-Platformer/blob/main/Sphere%20Platformer%20Game%20Report.pdf included in the files of the main branch.
+For a detailed explanation of the development process, challenges faced, and contributions, please refer to [Report](https://github.com/cartercsm9/Sphere-Platformer/blob/main/Sphere%20Platformer%20Game%20Report.pdf)  or check the pdf included in the files of the main branch.
 
 ## Gameplay Video
 

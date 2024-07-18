@@ -5,18 +5,19 @@ public class CameraFollow : MonoBehaviour
     public Transform target;  // The player to follow
     public float distance = 10.0f;  // Distance behind the player
     public float height = 5.0f;     // Height above the player
-    public float followSmoothSpeed = 0.5f;  // Smoothing speed for following
+    public float followSmoothSpeed = 0.1f;  // Smoothing speed for following
     private bool shouldRotate = false;
     private Vector3 initialPosition;
     private float rotationDuration = 0.5f;  // Total time to complete 180 degrees rotation
     private float rotationTimeElapsed = 0f;
+    public Vector3 cameraOffset; 
 
     void Start()
     {
-
-        initialPosition = new Vector3(-3.3f, 12.0f, 14.4f);;
+        initialPosition = new Vector3(-3.3f, 12.0f, 14.4f);
         transform.position = initialPosition;
         transform.LookAt(target);
+        cameraOffset = new Vector3(0,0,-3);
     }
 
     void Update()
@@ -36,7 +37,7 @@ public class CameraFollow : MonoBehaviour
     Vector3 CalculatePosition(Vector3 basePosition)
     {
         // Calculate the offset position from the target
-        return basePosition - target.forward * distance + Vector3.up * height;
+        return basePosition - target.forward * distance + Vector3.up * height - cameraOffset;
     }
 
     void FollowPlayer()
@@ -76,8 +77,11 @@ public class CameraFollow : MonoBehaviour
         initialPosition = CalculatePosition(target.position);
         transform.position = initialPosition;
         transform.LookAt(target);
-        TriggerRotation();
         Debug.Log("Camera reset to initial position.");
+    }
+    public void UpdateCameraOffset(Vector3 offset)
+    {
+        cameraOffset = offset;
     }
 }
 

@@ -36,7 +36,7 @@ public class SphereMovement : MonoBehaviour
         ProcessJumpRequest();
     }
 
-    private void ResetPlayerAndCamera()
+    public void ResetPlayerAndCamera()
     {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
@@ -111,9 +111,8 @@ public class SphereMovement : MonoBehaviour
     {
         // Create a new vector with only the horizontal components of the velocity
         Vector3 horizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-
         // Check if the magnitude of the horizontal velocity is below the threshold
-        if (horizontalVelocity.magnitude < 0.4f)
+        if (horizontalVelocity.magnitude < 0.6f)
         {
             // Zero out only the horizontal components
             rb.velocity = new Vector3(0, rb.velocity.y, 0);

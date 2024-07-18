@@ -77,6 +77,7 @@ public class CameraFollow : MonoBehaviour
         initialPosition = CalculatePosition(target.position);
         transform.position = initialPosition;
         transform.LookAt(target);
+        cameraOffset = new Vector3(0,0,-3);
         Debug.Log("Camera reset to initial position.");
     }
     public void UpdateCameraOffset(Vector3 offset)

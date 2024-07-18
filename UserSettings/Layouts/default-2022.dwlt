@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 4339
+  controlID: 1149
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 4340
+  controlID: 1150
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 50}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 4341
+  controlID: 1133
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -414,10 +414,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 74.5}
-      m_SelectedIDs: 
+      scrollPos: {x: 0, y: 658}
+      m_SelectedIDs: aa140000
       m_LastClickedID: 0
-      m_ExpandedIDs: acf1ffff
+      m_ExpandedIDs: faf9ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -771,9 +771,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.25, y: -6.63, z: -110.21927}
+    m_Target: {x: 2.8151278, y: 15.908546, z: 15.513761}
     speed: 2
-    m_Value: {x: -0.25, y: -6.63, z: -110.21927}
+    m_Value: {x: 2.8151278, y: 15.908546, z: 15.513761}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -823,9 +823,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.00985986, y: 0.9901521, z: -0.10415997, w: -0.09383718}
   m_Size:
-    m_Target: 7.418596
+    m_Target: 1.00136
     speed: 2
-    m_Value: 7.418596
+    m_Value: 1.00136
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -976,7 +976,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -984,16 +984,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 71
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: 71
-  m_LastProjectPath: C:\Users\carte\OneDrive\Desktop\Sphere-Platformer
+  m_LastProjectPath: C:\Users\carte\Sphere-Platformer-1
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: da680000
-    m_LastClickedID: 26842
-    m_ExpandedIDs: 00000000c6680000c8680000da680000
+    m_SelectedIDs: aa660000
+    m_LastClickedID: 26282
+    m_ExpandedIDs: 000000008c6600008e660000a0660000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1021,7 +1021,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c6680000c8680000
+    m_ExpandedIDs: 000000008c6600008e660000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

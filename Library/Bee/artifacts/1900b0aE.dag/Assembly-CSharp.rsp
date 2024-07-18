@@ -368,6 +368,7 @@
 "Assets/Scripts/CameraSwitch.cs"
 "Assets/Scripts/Coin.cs"
 "Assets/Scripts/CoinSpin.cs"
+"Assets/Scripts/EnemyPatrol.cs"
 "Assets/Scripts/planeMovement.cs"
 "Assets/Scripts/PlaneTiggerCameraSpin.cs"
 "Assets/Scripts/PlayerReset.cs"

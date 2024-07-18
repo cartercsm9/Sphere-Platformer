@@ -109,8 +109,6 @@ public class SphereMovement : MonoBehaviour
 
     void ApplyVelocityDeadZone()
     {
-        Debug.Log("Current Velocity Magnitude: " + rb.velocity.magnitude);
-
         // Create a new vector with only the horizontal components of the velocity
         Vector3 horizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
 

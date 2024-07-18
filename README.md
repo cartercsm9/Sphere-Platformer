@@ -19,4 +19,4 @@ For a detailed explanation of the development process, challenges faced, and con
 
 ## Gameplay Video
 
-Watch a gameplay video demonstrating the features and mechanics of the game: [Watch Here](INSERT_LINK_HERE)
+Watch a gameplay video demonstrating the features and mechanics of the game: [Watch Here](https://youtu.be/ijwVUH9zXVk)
